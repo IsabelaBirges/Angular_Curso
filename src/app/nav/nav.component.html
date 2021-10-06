@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container">
+    <a routerLink="dashboard" class="navbar-brand">Smart School</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0 mr-auto">
+        <li class="nav-item">
+          <a routerLink="alunos" routerLinkActive="active" class="nav-link ">Alunos</a>
+        </li>
+        <li class="nav-item">
+          <a routerLink="professores" routerLinkActive="active" class="nav-link">Professores</a>
+        </li>
+      </ul>
+      <ul>
+      </ul>
+      <ul class="navbar-nav" dropdown>
+        <li class="nav-item dropdown">
+          <a id="button-basic" dropdownToggle class="nav-link dropdown-toggle" id="navbarDropdown" role="button"
+            style="cursor: pointer" aria-expanded="false">
+            Isabela
+          </a>
+          <div id="dropdown-basic" *dropdownMenu class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a routerLink="perfil" routerLinkActive="active" class="nav-link">Perfil</a>
+            <a class="dropdown-item" href="#">Sair</a>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+</nav>

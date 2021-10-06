@@ -1,0 +1,65 @@
+
+  <div  *ngIf="professorSelecionado">
+    <div class="row">
+      <div class="col-sm-10">
+        <app-titulo [titulo]="'Cód. Professor: ' + professorSelecionado.id"></app-titulo>
+      </div>
+      <div class="col-sm-2 mt-2">
+        <button class="btn btn-outline-danger" (click)="voltar()">Voltar</button>
+      </div>
+    </div>
+    <form [formGroup]="professorForm" (submit)="professorSubmit()">
+      <div class="form-group">
+        <label for="formGroupExampleInput" class="form-label">Nome</label>
+        <input type="text" formControlName="nome" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="formGroupExampleInput2" class="form-label">Disciplina</label>
+        <input type="text" formControlName="disciplina" class="form-control">
+      </div>
+      <div class="form-group">
+        <hr>
+        <button class="btn btn-success" [disabled]="!professorForm.valid">Enviar</button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="!professorSelecionado">
+    <app-titulo [titulo]="titulo"></app-titulo>
+
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th scope="col">Visualizar</th>
+          <th scope="col">ID</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Disciplina</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let professor of professores">
+          <td><button (click)="professorSelect(professor)" class="text-dark btn btn-sm btn-outline-warning">Visualizar</button></td>
+          <td scope="row">{{professor.id}}</td>
+          <td>{{professor.nome}}</td>
+          <td>{{professor.disciplina}}</td>
+          <td>
+            <div class="btn-group">
+              <button class="btn btn-sm btn-outline-primary" (click)="openModal(template)">Alunos</button>
+
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+
+<ng-template #template >
+  <div class="modal-body">
+    <app-alunos></app-alunos>
+  </div>
+    <div class="modal-footer">
+      <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+        <span aria-hidden="true" class="visually-hidden">&times;</span>
+      </button>
+    </div>
+</ng-template>
